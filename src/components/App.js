@@ -1,5 +1,6 @@
 import React , { Component} from "react"
 import { get } from "http";
+import DataTable from './DataTable'
 
 class App extends Component{
     render(){
@@ -13,12 +14,20 @@ class App extends Component{
              React.createElement('h1',null,'Holas, React.CreateComponet')
         );*/
 
-        const title = 'React!';
+        /*const title = 'React!';
         const date = new Date();
 
         return <div className='text-center'>
                     <h3>Hello {title} son los {date.getHours()} horas y {date.getMinutes()} minutos</h3>    
-                </div>
+                </div>*/
+
+        return (
+        
+        <div className='container'>
+            <DataTable/>
+        </div>
+
+        )
 
 
         //return  mesagge 
