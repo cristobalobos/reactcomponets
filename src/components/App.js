@@ -5,15 +5,15 @@ import SimpleDataTable from './SimpleDataTable'
 
 class App extends Component{
     render(){
-       
+       const products = [
+           {id:1,name:'Azucar',unitPrice:19.50, unitStock:50},
+           {id:2,name:'Leche',unitPrice:8, unitStock:150},
+           {id:3,name:'Frijol',unitPrice:8, unitStock:300},
+       ]
         return (        
-        <div className='container'>
-            <div>DataTable:</div>
-            <DataTable/>
-            <div>SimpleDataTable:</div>
-            <SimpleDataTable />
-        </div>
-
+            <div className='container'>
+                <SimpleDataTable productsData={products}/>
+            </div>
         )
     }
 }

@@ -15,22 +15,20 @@ const TableHeader =() => {
     )
 }
 
-const TableBody = () => {
+const TableBody = (props) => {
+    const tableRows = props.productsData.map((product,index) => {
+        return (
+            <tr key={product.id}>
+                <th>{product.id}</th>
+                <th>{product.name}</th>
+                <th>{product.unitPrice}</th>
+                <th>{product.unitStock}</th>
+            </tr>
+        )
+    }
+)
     return (
-        <tbody>
-            <tr>
-                <th>2</th>
-                <th>Leche</th>
-                <th>17</th>
-                <th>400</th>
-            </tr>
-            <tr>
-                <th>1</th>
-                <th>Azucar</th>
-                <th>17</th>
-                <th>400</th>
-            </tr>
-        </tbody>
+        <tbody>{tableRows}</tbody>        
     )
 }
 
@@ -39,7 +37,7 @@ class SimpleDataTable extends Component {
         return (
             <Table striped>
                 <TableHeader/>
-                <TableBody/>
+                <TableBody productsData={this.props.productsData}/>
             </Table>
         )
     }
