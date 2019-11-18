@@ -23,6 +23,13 @@ const TableBody = (props) => {
                 <th>{product.name}</th>
                 <th>{product.unitPrice}</th>
                 <th>{product.unitStock}</th>
+                <th> 
+                    <button onClick={()=> props.removeProduct(product.id)}
+                        className='btn btn-primary'>
+                        Eliminar
+                    </button>
+                    
+                </th>
             </tr>
         )
     }
@@ -37,7 +44,8 @@ class SimpleDataTable extends Component {
         return (
             <Table striped>
                 <TableHeader/>
-                <TableBody productsData={this.props.productsData}/>
+                <TableBody productsData={this.props.productsData}
+                    removeProduct={this.props.removeProduct}/>
             </Table>
         )
     }
