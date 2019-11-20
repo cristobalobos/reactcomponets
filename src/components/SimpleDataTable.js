@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Table} from 'reactstrap'
-import { cpus } from 'os';
+import ShowProductForm from './ShowProductForm'
 
 const TableHeader =() => {
     return (
@@ -22,15 +22,22 @@ const TableBody = (props) => {
                 <th>{product.id}</th>
                 <th>{product.name}</th>
                 <th>{product.unitPrice}</th>
-                <th>{product.unitStock}</th>
+                <th>{product.unitInStock}</th>
                 <th> 
-                    <button onClick={()=> props.removeProduct(product.id)}
+                    <button color='danger' onClick={()=> props.removeProduct(product.id)}
                         className='btn btn-primary'>
                         Eliminar
-                    </button>
-                    
+                    </button>                    
                 </th>
-            </tr>
+                <th>
+                    <div>
+                        <ShowProductForm
+                            isNew={false}
+                            product={product}
+                            updateProduct={props.updateProduct}/>
+                    </div>
+                </th>                
+            </tr>            
         )
     }
 )
@@ -45,7 +52,8 @@ class SimpleDataTable extends Component {
             <Table striped>
                 <TableHeader/>
                 <TableBody productsData={this.props.productsData}
-                    removeProduct={this.props.removeProduct}/>
+                    removeProduct={this.props.removeProduct}
+                    updateProduct={this.props.updateProduct}/>
             </Table>
         )
     }
